@@ -5,6 +5,8 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 import BgSlider from '@/screens/BgSlider/BgSlider';
+import ColorBoxes from '@/screens/ColorBoxes/ColorBoxes';
+import ColorBoxesDetails from '@/screens/ColorBoxesDetails/ColorBoxesDetails';
 import Home from '@/screens/Home/Home';
 
 const Stack = createStackNavigator();
@@ -26,9 +28,11 @@ const App: React.FC = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" mode="modal">
+      <Stack.Navigator headerMode="none" mode="modal" initialRouteName="ColorBoxes">
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="BgSlider" component={BgSlider} />
+        <Stack.Screen name="ColorBoxes" component={ColorBoxes} />
+        <Stack.Screen name="ColorBoxesDetails" component={ColorBoxesDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
