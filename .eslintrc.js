@@ -2,7 +2,10 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   extends: ['airbnb', 'plugin:@typescript-eslint/recommended', 'prettier', 'prettier/react'],
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint', 'prettier', 'reanimated'],
+  parserOptions: {
+    project: './tsconfig.json',
+  },
   settings: {
     'import/resolver': {
       'babel-module': {
@@ -11,6 +14,7 @@ module.exports = {
     },
   },
   rules: {
+    'reanimated/js-function-in-worklet': 2,
     'import/order': [
       'error',
       {

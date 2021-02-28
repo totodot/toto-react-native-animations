@@ -1,13 +1,13 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 
 import Space from '@/components/Space';
 import Text from '@/components/Text';
 import { FontFamilies } from '@/types/common.types';
 
+import HomeLink from './HomeLink';
+
 const Home: React.FC = () => {
-  const navi = useNavigation();
   return (
     <View
       style={{
@@ -20,9 +20,8 @@ const Home: React.FC = () => {
         zrób se animki
       </Text>
       <Space h={30} />
-      <TouchableOpacity onPress={() => navi.navigate('BgSlider')}>
-        <Text font={FontFamilies.Montserrat}>Background Slider 🟨</Text>
-      </TouchableOpacity>
+      <HomeLink text="Background Slider 🟨" link="BgSlider" />
+      <HomeLink text="Color Boxes 🌈" link="ColorBoxes" />
     </View>
   );
 };
