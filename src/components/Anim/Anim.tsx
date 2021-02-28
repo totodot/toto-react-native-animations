@@ -27,7 +27,7 @@ const slideDown = (value) => {
     opacity: value,
     transform: [
       {
-        translateY: interpolate(value, [0, 1], [20, 0]),
+        translateY: interpolate(value, [0, 1], [50, 0]),
       },
     ],
   };
@@ -38,6 +38,7 @@ const animations = {
 };
 
 const Anim = ({
+  style,
   children,
   active = false,
   duration = 500,
@@ -69,7 +70,7 @@ const Anim = ({
     return null;
   }
 
-  return <Animated.View style={styles}>{children}</Animated.View>;
+  return <Animated.View style={[style, styles]}>{children}</Animated.View>;
 };
 
 export default Anim;

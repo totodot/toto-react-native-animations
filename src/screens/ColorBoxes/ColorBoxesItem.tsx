@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { Dimensions, Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import Animated, { Easing, runOnJS, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import { SharedElement } from 'react-navigation-shared-element';
 
 import Space from '@/components/Space';
 import Text from '@/components/Text';
@@ -35,7 +36,7 @@ const ITEMS = [
   },
 ];
 
-const ColorBoxesItem: React.FC = ({ index, animatedActiveIndex, color, text, image }) => {
+const ColorBoxesItem: React.FC = ({ index, animatedActiveIndex, color, text, id, image }) => {
   const navi = useNavigation();
   const styles = useAnimatedStyle(() => {
     return {
@@ -70,8 +71,7 @@ const ColorBoxesItem: React.FC = ({ index, animatedActiveIndex, color, text, ima
 
   const onPress = () => {
     if (index === animatedActiveIndex.value) {
-      console.log(1);
-      navi.navigate('ColorBoxesDetails', { color, text, image });
+      navi.navigate('ColorBoxesDetails', { color, text, id, image });
     } else {
       animatedActiveIndex.value = index;
     }
@@ -124,17 +124,20 @@ const ColorBoxesItem: React.FC = ({ index, animatedActiveIndex, color, text, ima
             },
           ]}
         >
-          <Animated.Image
-            resizeMode="cover"
-            style={[
-              {
-                width: '100%',
-                height: '100%',
-              },
-              imageStyles,
-            ]}
-            source={image}
-          />
+          <SharedElement id={`item.${id}.image`}>
+            <Animated.Image
+              resizeMode="cover"
+              style={[
+                {
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: 6,
+                },
+                imageStyles,
+              ]}
+              source={image}
+            />
+          </SharedElement>
         </Animated.View>
         <Animated.View
           style={[
@@ -144,15 +147,17 @@ const ColorBoxesItem: React.FC = ({ index, animatedActiveIndex, color, text, ima
             textStyles,
           ]}
         >
-          <Text
-            color={COLORS.WHITE}
-            size="l"
-            font={FontFamilies.MontserratBold}
-            uppercase
-            align="center"
-          >
-            {text}
-          </Text>
+          <SharedElement id={`item.${id}.text`}>
+            <Text
+              color={COLORS.WHITE}
+              size="l"
+              font={FontFamilies.MontserratBold}
+              uppercase
+              align="center"
+            >
+              {text}
+            </Text>
+          </SharedElement>
         </Animated.View>
       </TouchableOpacity>
     </Animated.View>
