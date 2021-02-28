@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { Dimensions, processColor, View } from 'react-native';
+import React from 'react';
+import { Dimensions } from 'react-native';
 import Animated, {
-  Extrapolate,
-  interpolate,
   interpolateColor,
   useAnimatedStyle,
   useDerivedValue,
@@ -11,7 +9,6 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import Space from '@/components/Space';
-import Text from '@/components/Text';
 import COLORS from '@/constants/colors.constants';
 
 import ColorBoxesItem from './ColorBoxesItem';
@@ -55,9 +52,6 @@ const ITEMS = [
   },
 ];
 
-const processedColors = ITEMS.map((item) => processColor(item.color));
-
-const red = processColor('red');
 export const BOX_LARGE_ASPECT = 4;
 export const BOXES_COUNT = ITEMS.length;
 export const BOX_SPACE = 2;
@@ -78,7 +72,6 @@ const ColorBoxes: React.FC = () => {
         ITEMS.map((item, index) => index),
         ITEMS.map((item) => item.color),
       ),
-      //   backgroundColor: withTiming(ITEMS[animatedActiveIndex.value].color, { duration: 1000 }),
     };
   });
   return (
