@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { StyleProp, Text, TextStyle, View } from 'react-native';
 import Animated, {
   interpolate,
-  runOnJS,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
   withTiming,
 } from 'react-native-reanimated';
-
-import COLORS from '@/constants/colors.constants';
-import { FontFamilies } from '@/types/common.types';
 
 const fadeIn = (value) => {
   'worklet';
@@ -65,7 +60,6 @@ const Anim = ({
   const styles = useAnimatedStyle(() => {
     return animations[name](animatedValue.value);
   });
-  console.log({ active });
   if (!localIsActive) {
     return null;
   }

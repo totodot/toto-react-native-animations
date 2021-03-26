@@ -109,18 +109,19 @@ const ColorBoxesDetails = () => {
                 </Text>
               </View>
             </SharedElement>
-
-            <Space m="s">
-              <Text font={FontFamilies.MontserratLight}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia numquam sint sequi
-                quasi maxime autem quia corporis explicabo inventore voluptatum!
-              </Text>
-              <Space mt="xs" />
-              <Text font={FontFamilies.MontserratLight}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia numquam sint sequi
-                quasi maxime autem quia corporis explicabo inventore voluptatum!
-              </Text>
-            </Space>
+            <Anim onMount delay={0} duration={600} style={{ flex: 1 }} name="slideDown">
+              <Space m="s">
+                <Text font={FontFamilies.MontserratLight}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia numquam sint
+                  sequi quasi maxime autem quia corporis explicabo inventore voluptatum!
+                </Text>
+                <Space mt="xs" />
+                <Text font={FontFamilies.MontserratLight}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia numquam sint
+                  sequi quasi maxime autem quia corporis explicabo inventore voluptatum!
+                </Text>
+              </Space>
+            </Anim>
           </>
         )}
         numColumns={2}

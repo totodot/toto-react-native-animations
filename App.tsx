@@ -40,7 +40,7 @@ const App: React.FC = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="ColorBoxes">
+      <Stack.Navigator headerMode="none" initialRouteName="Home">
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="BgSlider" component={BgSlider} />
         <Stack.Screen name="ColorBoxes" component={ColorBoxes} />
