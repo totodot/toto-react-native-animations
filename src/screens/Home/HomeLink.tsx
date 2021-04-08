@@ -12,9 +12,9 @@ type Props = {
 };
 
 const HomeLink: React.FC<Props> = ({ text, link }) => {
-  const navi = useNavigation();
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity onPress={() => navi.navigate(link)}>
+    <TouchableOpacity onPress={() => navigation.navigate(link)}>
       <Space mv="xs">
         <Text font={FontFamilies.Montserrat}>{text}</Text>
       </Space>

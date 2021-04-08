@@ -5,6 +5,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 
+import Animations from '@/screens/Animations/Animations';
 import BgSlider from '@/screens/BgSlider/BgSlider';
 import ColorBoxes from '@/screens/ColorBoxes/ColorBoxes';
 import ColorBoxesDetails from '@/screens/ColorBoxesDetails/ColorBoxesDetails';
@@ -42,6 +43,7 @@ const App: React.FC = () => {
     <NavigationContainer>
       <Stack.Navigator headerMode="none" initialRouteName="Home">
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Animations" component={Animations} />
         <Stack.Screen name="BgSlider" component={BgSlider} />
         <Stack.Screen name="ColorBoxes" component={ColorBoxes} />
         <Stack.Screen

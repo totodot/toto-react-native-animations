@@ -81,7 +81,6 @@ const ColorBoxesDetails = () => {
   const { text, image, id } = params;
   const scrollY = useSharedValue(0);
   const scrollHandler = useAnimatedScrollHandler((event) => {
-    console.log({ event });
     scrollY.value = event.contentOffset.y;
   });
 

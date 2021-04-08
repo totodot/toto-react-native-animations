@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Dimensions, StyleSheet, Image } from 'react-native';
-import { PanGestureHandler } from 'react-native-gesture-handler';
+import { PanGestureHandler, PanGestureHandlerGestureEvent } from 'react-native-gesture-handler';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -121,11 +121,16 @@ const BgSlider: React.FC = () => {
   const price = useSharedValue(0);
   const translateX = useSharedValue(0);
   const priceText = useDerivedValue(() => {
-    const withSeparators = String(price.value).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const withSeparators = `${price.value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     return `$${withSeparators}`;
   });
 
-  const onGestureEvent = useAnimatedGestureHandler({
+  const onGestureEvent = useAnimatedGestureHandler<
+    PanGestureHandlerGestureEvent,
+    {
+      offsetX: number;
+    }
+  >({
     onStart: (_event, ctx) => {
       ctx.offsetX = translateX.value;
     },

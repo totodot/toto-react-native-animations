@@ -32,7 +32,7 @@ const animations = {
   fadeIn,
 };
 
-const Anim = ({
+const Anim: React.FC = ({
   style,
   children,
   active = false,

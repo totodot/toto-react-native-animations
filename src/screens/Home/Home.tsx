@@ -20,6 +20,7 @@ const Home: React.FC = () => {
         zrób se animki
       </Text>
       <Space h={30} />
+      <HomeLink text="Animations 🐌" link="Animations" />
       <HomeLink text="Background Slider 🟨" link="BgSlider" />
       <HomeLink text="Color Boxes 🌈" link="ColorBoxes" />
     </View>

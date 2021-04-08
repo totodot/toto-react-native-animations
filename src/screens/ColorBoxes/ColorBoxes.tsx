@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import React from 'react';
 import { Dimensions } from 'react-native';
 import Animated, {
